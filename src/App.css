@@ -1,0 +1,295 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; min-width: 320px; }
+button, input, select { font: inherit; }
+button { cursor: pointer; border: none; }
+
+.pro-app {
+  --bg: #101321; --sidebar: #171b2d; --panel: #1b2034;
+  --panel2: #222840; --text: #f3f4fc; --muted: #969db7;
+  --border: #30364e; --purple: #9575ff; --purple2: #7049e8;
+  min-height: 100vh; display: flex; background: var(--bg); color: var(--text);
+}
+.pro-app.light {
+  --bg: #f3f4fa; --sidebar: #fff; --panel: #fff;
+  --panel2: #f2efff; --text: #20243a; --muted: #7c829b; --border: #e5e6ef;
+}
+.pro-sidebar {
+  width: 255px; min-height: 100vh; background: var(--sidebar);
+  border-right: 1px solid var(--border); padding: 28px 19px;
+  display: flex; flex-direction: column; flex-shrink: 0;
+  position: sticky; top: 0; height: 100vh; z-index: 5;
+}
+.brand-mark { font-size: 25px; font-weight: 800; letter-spacing: -1px; color: var(--text); margin-bottom: 34px; }
+.brand-mark span { color: var(--purple); font-size: 11px; letter-spacing: 2px; margin-left: 5px; vertical-align: middle; }
+.side-user { display: flex; align-items: center; gap: 12px; padding: 15px 10px; border-radius: 12px; background: var(--panel); margin-bottom: 30px; }
+.avatar, .profile-avatar { width: 42px; height: 42px; border-radius: 13px; background: linear-gradient(135deg,#9e7cff,#6543d7); display: grid; place-items: center; color: white; font-weight: 800; font-size: 20px; flex-shrink: 0; }
+.side-user b { display: block; font-size: 13px; }
+.side-user small { display: block; color: var(--muted); margin-top: 5px; font-size: 11px; }
+.nav-label { color: var(--muted); font-size: 10px; letter-spacing: 2px; margin: 8px 10px 12px; font-weight: 700; }
+.pro-sidebar > button, .sidebar-bottom button { color: var(--muted); background: transparent; padding: 13px 14px; text-align: left; border-radius: 10px; margin-bottom: 6px; display: flex; align-items: center; gap: 13px; font-size: 13px; transition: .2s; }
+.pro-sidebar > button span, .sidebar-bottom button span { width: 20px; text-align: center; font-size: 18px; }
+.pro-sidebar > button:hover, .sidebar-bottom button:hover { background: var(--panel2); color: var(--text); }
+.pro-sidebar > button.nav-active { color: white; background: linear-gradient(100deg,#7655e9,#9167ef); box-shadow: 0 6px 20px #7850e633; }
+.sidebar-bottom { margin-top: auto; border-top: 1px solid var(--border); padding-top: 18px; }
+.pro-main { flex: 1; min-width: 0; padding: 30px 35px 50px; max-width: 1700px; margin: 0 auto; width: 100%; }
+.topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; gap: 15px; }
+.topbar small, .welcome-banner small, .selected-workout > small { color: var(--purple); letter-spacing: 2px; font-size: 10px; font-weight: 800; }
+.topbar h1 { font-size: 27px; margin-top: 7px; letter-spacing: -1px; }
+.top-user { color: var(--muted); font-size: 13px; background: var(--panel); padding: 12px 17px; border: 1px solid var(--border); border-radius: 30px; }
+.top-user span { color: #35d39a; margin-right: 7px; }
+
+.welcome-banner { min-height: 225px; padding: 35px 40px; border-radius: 20px; background: linear-gradient(115deg,#39266e,#6846bd 65%,#9065e7); display: flex; align-items: center; justify-content: space-between; overflow: hidden; margin-bottom: 25px; color: white; position: relative; }
+.welcome-banner small { color: #d9caff; }
+.welcome-banner h2 { font-size: clamp(25px,3vw,38px); margin: 14px 0; letter-spacing: -1.5px; }
+.welcome-banner p { color: #e1d9fa; font-size: 13px; margin-bottom: 20px; line-height: 1.6; }
+.banner-icon { font-size: 105px; opacity: .9; padding-right: 25px; filter: drop-shadow(0 12px 15px #0003); }
+.primary-btn { color: white; background: linear-gradient(110deg,#8060f2,#a45ce0); border-radius: 9px; padding: 12px 19px; font-size: 12px; font-weight: 700; transition: .2s; }
+.primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px #825ae64d; }
+.secondary-btn { background: var(--panel2); color: var(--purple); padding: 11px 17px; border-radius: 8px; font-weight: 600; font-size: 12px; margin: 8px 5px 0 0; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 17px; margin-bottom: 22px; }
+.stat-card { padding: 23px; background: var(--panel); border: 1px solid var(--border); border-radius: 15px; min-width: 0; transition: .2s; }
+.stat-card:hover { transform: translateY(-3px); border-color: var(--purple); }
+.stat-card > span { display: block; font-size: 23px; color: var(--purple); margin-bottom: 16px; }
+.stat-card small { display: block; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 1px; }
+.stat-card h2 { font-size: 29px; margin: 10px 0 6px; }
+.stat-card p { color: var(--muted); font-size: 11px; }
+.dashboard-grid { display: grid; grid-template-columns: minmax(0,1.7fr) minmax(240px,1fr); gap: 19px; margin-bottom: 22px; }
+.pro-panel { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 25px; margin-bottom: 20px; min-width: 0; }
+.pro-panel h2, .pro-panel h3 { font-size: 17px; margin-bottom: 8px; }
+.pro-panel p { color: var(--muted); font-size: 12px; margin-top: 8px; line-height: 1.7; }
+.panel-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.panel-heading p { color: var(--muted); font-size: 11px; }
+.chart-tag { color: var(--purple); background: var(--panel2); border-radius: 20px; padding: 8px 11px; font-size: 9px; font-weight: 700; }
+.chart-area { height: 245px; width: 100%; margin-top: 25px; }
+.goal-panel { text-align: center; }
+.goal-panel h3 { text-align: left; }
+.goal-circle { width: 155px; height: 155px; margin: 25px auto; border-radius: 50%; background: conic-gradient(#9675ff 0deg,#6846bd 220deg,var(--border) 220deg); display: grid; place-items: center; }
+.goal-circle > div { background: var(--panel); border-radius: 50%; width: 125px; height: 125px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.goal-circle b { font-size: 30px; }
+.goal-circle small { color: var(--muted); font-size: 11px; }
+.goal-note { margin: 10px 0 15px; }
+.mini-workouts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin-top: 20px; }
+.mini-workout { padding: 12px; background: var(--panel2); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
+.mini-workout-image { height: 115px; border-radius: 9px; background-size: cover; background-position: center; margin-bottom: 13px; }
+.mini-workout b, .mini-workout small { display: block; }
+.mini-workout b { font-size: 12px; }
+.mini-workout small { color: var(--muted); font-size: 10px; margin: 8px 0; }
+.mini-workout button, .text-btn { color: var(--purple); background: transparent; font-size: 11px; font-weight: 700; margin-top: 8px; }
+
+.page-intro { margin-bottom: 22px; }
+.page-intro h2 { font-size: 24px; margin-bottom: 8px; }
+.page-intro p { color: var(--muted); font-size: 13px; }
+.library-tools { display: flex; gap: 12px; margin-bottom: 22px; }
+.library-tools input, .library-tools select, .pro-form input, .pro-form select, .inline-form input { color: var(--text); background: var(--panel); border: 1px solid var(--border); border-radius: 9px; padding: 13px; outline: none; min-width: 0; }
+.library-tools input { flex: 1; }
+.library-tools select { width: 180px; }
+.library-tools input:focus, .library-tools select:focus, .pro-form input:focus, .pro-form select:focus, .inline-form input:focus { border-color: var(--purple); }
+.workout-library { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 19px; }
+.library-card { background: var(--panel); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; transition: .25s; box-shadow: 0 8px 25px #0002; }
+.library-card:hover { transform: translateY(-5px); border-color: var(--purple); box-shadow: 0 14px 35px #7850e626; }
+.library-image { height: 190px; background-size: cover; background-position: center; position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: space-between; padding: 15px; }
+.library-image::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,#0a0a140d,#0a0a14cc); }
+.library-image small { position: relative; z-index: 1; background: #14141ebf; backdrop-filter: blur(8px); color: white; padding: 7px 12px; border: 1px solid #ffffff33; border-radius: 20px; font-size: 10px; }
+.image-overlay { position: relative; z-index: 1; color: white; font-size: 9px; font-weight: 800; letter-spacing: 1.5px; }
+.library-content { padding: 20px; }
+.level-tag { display: inline-block; color: #b49bff; background: var(--panel2); border-radius: 20px; padding: 5px 9px; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; }
+.library-content h3 { font-size: 16px; margin: 13px 0 9px; }
+.library-content p { color: var(--muted); font-size: 10px; line-height: 1.8; min-height: 40px; }
+.workout-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 10px; margin: 15px 0; border-top: 1px solid var(--border); padding-top: 14px; gap: 8px; }
+.library-content .primary-btn { width: 100%; }
+.selected-workout { position: relative; border-color: var(--purple); }
+.close-btn { position: absolute; right: 20px; top: 20px; z-index: 2; background: var(--panel2); color: var(--text); border-radius: 7px; padding: 7px 10px; }
+.detail-workout-image { height: 220px; border-radius: 13px; background-size: cover; background-position: center; margin-bottom: 22px; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 18px; }
+.detail-workout-image::before { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg,#0a0a14cc,transparent); }
+.detail-workout-image span { position: relative; color: white; font-size: 11px; font-weight: 800; letter-spacing: 2px; }
+.selected-workout h2 { font-size: 25px; margin: 12px 0; }
+.selected-workout > p { font-size: 13px; line-height: 1.8; }
+.detail-meta { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; color: var(--muted); font-size: 12px; }
+.selected-workout .primary-btn, .selected-workout .secondary-btn { margin-right: 8px; margin-bottom: 8px; }
+.timer-display { font-size: 48px; font-weight: 800; color: var(--purple); margin: 20px 0; letter-spacing: 4px; font-variant-numeric: tabular-nums; }
+
+.schedule-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 13px; margin-top: 22px; }
+.schedule-grid article { background: var(--panel2); padding: 17px; border-radius: 12px; border: 1px solid var(--border); }
+.schedule-grid small { color: var(--purple); font-size: 9px; letter-spacing: 1px; }
+.schedule-grid h3 { font-size: 13px; margin: 12px 0; }
+.schedule-grid p { min-height: 32px; }
+.schedule-grid span { color: #41c99b; font-size: 10px; }
+.pro-form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 22px 0; }
+.pro-form label { display: flex; flex-direction: column; gap: 8px; font-size: 11px; color: var(--muted); }
+.pro-form .primary-btn { align-self: end; }
+.inline-form { display: flex; gap: 12px; margin: 20px 0; }
+.inline-form input { flex: 1; }
+.nutrition-number { font-size: 44px; color: var(--purple); font-weight: 800; margin: 25px 0; }
+.nutrition-number small { display: block; color: var(--muted); font-size: 11px; font-weight: 500; }
+.food-entry { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.food-entry p { margin: 0; }
+.delete-btn { background: #51283d; color: #ff91b2; padding: 7px 11px; border-radius: 7px; font-size: 11px; flex-shrink: 0; }
+.light .delete-btn { background: #ffe8ee; color: #ce4267; }
+.admin-workout { display: flex; align-items: center; justify-content: space-between; gap: 15px; border-bottom: 1px solid var(--border); padding: 12px 0; }
+.admin-workout b, .admin-workout small { display: block; }
+.admin-workout b { font-size: 12px; }
+.admin-workout small { color: var(--muted); margin-top: 5px; font-size: 10px; }
+.profile-panel { max-width: 650px; }
+.profile-avatar { width: 75px; height: 75px; font-size: 32px; border-radius: 22px; margin-bottom: 17px; }
+
+.auth-page { min-height: 100vh; background: radial-gradient(circle at top right,#46327e,#101321 65%); display: grid; place-items: center; padding: 25px; }
+.auth-page.light { background: linear-gradient(135deg,#eae4ff,#f8f8fc); }
+.auth-card { width: 100%; max-width: 440px; padding: 40px; border: 1px solid #38324f; border-radius: 22px; background: #1b2034; color: #f5f4fc; box-shadow: 0 25px 70px #0005; }
+.light .auth-card { background: white; color: #20243a; border-color: #e7e4f3; }
+.auth-card .brand-mark { text-align: center; font-size: 31px; margin-bottom: 8px; }
+.auth-tagline { color: #a894e9; text-align: center; letter-spacing: 3px; font-size: 9px; margin-bottom: 32px; }
+.auth-card h2 { text-align: center; font-size: 23px; margin-bottom: 8px; }
+.auth-card .muted { color: #969db7; text-align: center; font-size: 12px; }
+.auth-tabs { display: flex; gap: 8px; background: #292d44; padding: 5px; border-radius: 10px; margin: 24px 0; }
+.light .auth-tabs { background: #f0edfa; }
+.auth-tabs button { flex: 1; background: transparent; color: #aaa3c3; padding: 11px; border-radius: 7px; font-weight: 600; }
+.auth-tabs button.selected { background: #7655db; color: white; }
+.auth-card form { display: flex; flex-direction: column; gap: 13px; }
+.auth-card input { width: 100%; padding: 14px; border-radius: 9px; border: 1px solid #393d56; background: #252a40; color: white; outline: none; }
+.light .auth-card input { background: #fafaff; color: #222; border-color: #e2e0ed; }
+.auth-card input:focus { border-color: #9675ff; }
+.auth-card form .primary-btn { margin-top: 8px; padding: 14px; }
+.auth-card .message { color: #ff8da7; font-size: 11px; margin-top: 10px; }
+.demo { text-align: center; margin-top: 20px; padding: 15px; background: #292d44; border-radius: 10px; color: #c8b8ff; font-size: 11px; line-height: 1.8; }
+.light .demo { background: #f1edff; color: #6544b2; }
+
+/* NEW NUTRITION DESIGN */
+.nutrition-hero {
+  min-height: 270px; display: flex; align-items: center; justify-content: space-between;
+  overflow: hidden; border-radius: 22px; margin-bottom: 22px;
+  background: linear-gradient(110deg,#173e35,#23644e 55%,#b6d5a8);
+  color: white; position: relative;
+}
+.nutrition-hero-text { padding: 35px 40px; max-width: 570px; position: relative; z-index: 1; }
+.nutrition-eyebrow { color: #8edbb3; font-size: 10px; font-weight: 800; letter-spacing: 2px; }
+.nutrition-hero h2 { font-size: clamp(27px,3vw,39px); line-height: 1.15; margin: 13px 0; letter-spacing: -1.5px; }
+.nutrition-hero h2 span { color: #b8f0c9; }
+.nutrition-hero p { color: #e0f1e7; font-size: 13px; line-height: 1.7; max-width: 410px; margin-bottom: 20px; }
+.nutrition-hero-btn { color: #174b38; background: #d7f5df; border-radius: 9px; padding: 12px 18px; font-size: 12px; font-weight: 800; }
+.nutrition-hero-image {
+  width: 42%; align-self: stretch; min-height: 270px;
+  background: linear-gradient(90deg,#23644e00,#23644e12),url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1000") center/cover;
+  clip-path: ellipse(85% 100% at 85% 50%);
+}
+.nutrition-summary { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 16px; margin-bottom: 35px; }
+.nutrition-total-card, .nutrition-mini-stat { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 23px; min-width: 0; }
+.nutrition-total-card { background: linear-gradient(135deg,var(--panel),#273d39); }
+.light .nutrition-total-card { background: linear-gradient(135deg,#fff,#e9f7ee); }
+.nutrition-summary-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.nutrition-summary-top small, .nutrition-mini-stat > small { color: var(--muted); font-size: 9px; font-weight: 800; letter-spacing: 1.5px; }
+.nutrition-summary-top h3 { font-size: 15px; margin-top: 6px; }
+.nutrition-summary-top > span { font-size: 25px; }
+.nutrition-big-number { font-size: 36px; font-weight: 800; margin: 17px 0 12px; }
+.nutrition-big-number small { font-size: 13px; color: var(--muted); font-weight: 500; }
+.nutrition-progress-track { width: 100%; height: 9px; background: var(--border); border-radius: 20px; overflow: hidden; }
+.nutrition-progress-fill { height: 100%; background: linear-gradient(90deg,#4cbd83,#a1df80); border-radius: 20px; transition: width .3s; }
+.nutrition-progress-label { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 9px; color: var(--muted); font-size: 10px; }
+.goal-input-label { display: flex; align-items: center; gap: 12px; margin-top: 17px; color: var(--muted); font-size: 11px; }
+.goal-input-label input { width: 90px; background: var(--panel2); color: var(--text); border: 1px solid var(--border); border-radius: 7px; padding: 7px; outline: none; }
+.nutrition-mini-stat { display: flex; flex-direction: column; justify-content: center; }
+.nutrition-stat-icon { font-size: 25px; margin-bottom: 17px; }
+.nutrition-mini-stat h2 { font-size: 29px; margin: 12px 0 4px; }
+.nutrition-mini-stat p { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.nutrition-section { margin-bottom: 28px; }
+.nutrition-section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 18px; }
+.nutrition-section-heading h2 { font-size: 23px; margin: 7px 0; }
+.nutrition-section-heading p { color: var(--muted); font-size: 12px; }
+.nutrition-tools { margin-bottom: 20px; }
+.nutrition-tools > input { width: 100%; max-width: 420px; padding: 13px 16px; color: var(--text); background: var(--panel); border: 1px solid var(--border); border-radius: 10px; outline: none; margin-bottom: 15px; }
+.nutrition-tools > input:focus { border-color: var(--purple); }
+.nutrition-category-list { display: flex; flex-wrap: wrap; gap: 9px; }
+.nutrition-category { padding: 9px 16px; border-radius: 25px; color: var(--muted); background: var(--panel); border: 1px solid var(--border); font-size: 11px; font-weight: 600; transition: .2s; }
+.nutrition-category:hover, .nutrition-category.active { color: white; background: linear-gradient(100deg,#7655e9,#9167ef); border-color: transparent; }
+.food-card-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 17px; }
+.food-card { background: var(--panel); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; transition: .25s; min-width: 0; }
+.food-card:hover { transform: translateY(-5px); border-color: #55c58c; box-shadow: 0 12px 28px #39a97820; }
+.food-card-image { height: 145px; position: relative; overflow: hidden; background: var(--panel2); }
+.food-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+.food-card:hover .food-card-image img { transform: scale(1.06); }
+.food-card-image > span { position: absolute; left: 11px; top: 11px; color: white; background: #14251ed9; border: 1px solid #ffffff33; border-radius: 20px; padding: 6px 10px; font-size: 9px; font-weight: 700; }
+.food-card-content { padding: 14px; }
+.food-card-content h3 { font-size: 14px; }
+.food-serving { color: var(--muted); font-size: 10px; margin-top: 6px; }
+.food-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 15px; padding-top: 12px; border-top: 1px solid var(--border); }
+.food-calorie-value { color: #57ca91; font-size: 21px; font-weight: 800; white-space: nowrap; }
+.food-calorie-value small { color: var(--muted); font-size: 10px; font-weight: 500; }
+.food-card-bottom button { color: white; background: linear-gradient(110deg,#36a978,#268b68); border-radius: 8px; padding: 9px 10px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+.food-card-bottom button:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.nutrition-bottom-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; align-items: start; }
+.nutrition-log-panel, .custom-food-panel { margin-bottom: 0; }
+.nutrition-log-count { color: #55c58c; background: #55c58c1a; border-radius: 20px; padding: 7px 11px; font-size: 10px; white-space: nowrap; }
+.nutrition-empty { text-align: center; padding: 35px 15px; }
+.nutrition-empty > span { font-size: 38px; }
+.nutrition-empty h3 { margin-top: 12px; }
+.nutrition-empty p { max-width: 300px; margin: 7px auto; }
+.nutrition-log-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.nutrition-log-item > img, .custom-food-icon { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; background: var(--panel2); flex-shrink: 0; }
+.custom-food-icon { display: grid; place-items: center; font-size: 21px; }
+.nutrition-log-name { flex: 1; min-width: 0; }
+.nutrition-log-name b, .nutrition-log-name small { display: block; }
+.nutrition-log-name b { font-size: 12px; }
+.nutrition-log-name small { color: var(--muted); font-size: 10px; margin-top: 5px; }
+.nutrition-log-item > strong { color: #55c58c; font-size: 11px; white-space: nowrap; }
+.custom-food-panel > h3 { margin-top: 9px; }
+.custom-food-form { grid-template-columns: 1fr; }
+.custom-food-form .primary-btn { width: 100%; }
+.nutrition-tip { display: flex; align-items: flex-start; gap: 10px; background: var(--panel2); border-radius: 10px; padding: 12px; }
+.nutrition-tip > span { font-size: 18px; }
+.nutrition-tip p { margin: 0; font-size: 10px; }
+
+@media (max-width: 1150px) {
+  .stat-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .workout-library { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .schedule-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .food-card-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .nutrition-summary { grid-template-columns: 1.4fr 1fr; }
+  .nutrition-total-card { grid-row: span 2; }
+}
+@media (max-width: 800px) {
+  .pro-sidebar { width: 205px; padding: 20px 12px; }
+  .pro-main { padding: 23px 18px; }
+  .dashboard-grid, .nutrition-bottom-grid { grid-template-columns: 1fr; }
+  .mini-workouts { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .food-card-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .nutrition-hero-image { width: 35%; }
+}
+@media (max-width: 600px) {
+  .pro-app { display: block; }
+  .pro-sidebar { width: 100%; height: auto; min-height: 0; position: relative; padding: 15px; }
+  .pro-sidebar .brand-mark { margin-bottom: 15px; }
+  .side-user { margin-bottom: 12px; }
+  .pro-sidebar > button, .sidebar-bottom button { display: inline-flex; padding: 9px; margin: 2px; }
+  .nav-label { display: block; }
+  .sidebar-bottom { margin-top: 12px; }
+  .pro-main { padding: 20px 13px; }
+  .welcome-banner { padding: 25px; }
+  .banner-icon { font-size: 55px; padding: 0; }
+  .stat-grid, .workout-library, .schedule-grid, .pro-form { grid-template-columns: 1fr; }
+  .library-tools { flex-direction: column; }
+  .library-tools select { width: 100%; }
+  .mini-workouts { grid-template-columns: 1fr; }
+  .inline-form { flex-direction: column; }
+  .auth-card { padding: 27px 20px; }
+  .topbar h1 { font-size: 22px; }
+  .top-user { font-size: 11px; padding: 10px; }
+  .detail-workout-image { height: 170px; }
+  .library-image { height: 210px; }
+  .admin-workout { align-items: flex-start; }
+  .nutrition-hero { min-height: 260px; }
+  .nutrition-hero-text { padding: 25px; }
+  .nutrition-hero-image { position: absolute; inset: 0; width: 100%; opacity: .2; clip-path: none; }
+  .nutrition-summary { grid-template-columns: 1fr; }
+  .nutrition-total-card { grid-row: auto; }
+  .food-card-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .food-card-image { height: 115px; }
+  .food-card-content { padding: 11px; }
+  .food-card-bottom { align-items: flex-start; flex-direction: column; }
+  .food-card-bottom button { width: 100%; }
+  .nutrition-category-list { gap: 6px; }
+  .nutrition-category { padding: 8px 11px; }
+  .nutrition-log-item { gap: 8px; flex-wrap: wrap; }
+}
