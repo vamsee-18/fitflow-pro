@@ -1,0 +1,244 @@
+
+.coach-panel {
+  background: var(--panel, #171c2b);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 24px;
+  margin-top: 20px;
+  color: inherit;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.coach-header,
+.coach-heading,
+.coach-header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.coach-header {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.coach-heading {
+  gap: 13px;
+}
+
+.coach-avatar,
+.message-avatar {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #7857ff, #19c6d5);
+  color: white;
+  font-weight: 800;
+  border-radius: 14px;
+}
+
+.coach-avatar {
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+}
+
+.coach-heading h2 {
+  margin: 0 0 5px;
+  font-size: 19px;
+}
+
+.coach-status {
+  font-size: 12px;
+  opacity: .7;
+}
+
+.coach-status i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #20d69b;
+  margin-right: 5px;
+}
+
+.coach-header-actions {
+  gap: 8px;
+}
+
+.coach-header-actions button {
+  padding: 9px 13px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.coach-welcome {
+  text-align: center;
+  padding: 22px 15px;
+  border-radius: 16px;
+  background: linear-gradient(120deg, rgba(120,87,255,.17), rgba(25,198,213,.10));
+}
+
+.coach-welcome > span {
+  display: inline-block;
+  color: #a18aff;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.coach-welcome h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.coach-welcome p {
+  margin: 0;
+  font-size: 13px;
+  opacity: .7;
+}
+
+.coach-quick-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.coach-quick-questions button {
+  padding: 9px 13px;
+  border: 1px solid rgba(120,87,255,.35);
+  border-radius: 20px;
+  background: rgba(120,87,255,.10);
+  color: inherit;
+  cursor: pointer;
+  font-size: 12px;
+  transition: .2s;
+}
+
+.coach-quick-questions button:hover {
+  background: rgba(120,87,255,.25);
+  transform: translateY(-2px);
+}
+
+.coach-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  min-height: 180px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 10px 3px;
+}
+
+.coach-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  max-width: 90%;
+}
+
+.coach-message.user {
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.coach-message.assistant {
+  align-self: flex-start;
+}
+
+.message-avatar {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  font-size: 15px;
+}
+
+.message-bubble {
+  padding: 13px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.07);
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.coach-message.user .message-bubble {
+  background: linear-gradient(135deg, #7055ee, #526eea);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.coach-message.assistant .message-bubble {
+  border-bottom-left-radius: 4px;
+}
+
+.coach-input-area {
+  display: flex;
+  gap: 10px;
+  padding: 9px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 13px;
+  background: rgba(255,255,255,.04);
+}
+
+.coach-input-area input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.coach-input-area button {
+  border: none;
+  border-radius: 9px;
+  padding: 10px 19px;
+  background: linear-gradient(135deg, #7857ff, #19aeca);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.coach-input-area button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.coach-disclaimer {
+  margin: 0;
+  text-align: center;
+  font-size: 11px;
+  opacity: .55;
+}
+
+@media (max-width: 600px) {
+  .coach-panel {
+    padding: 14px;
+    min-height: 600px;
+  }
+
+  .coach-header {
+    align-items: flex-start;
+  }
+
+  .coach-header-actions button {
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .coach-message {
+    max-width: 100%;
+  }
+
+  .coach-input-area button {
+    padding: 10px 12px;
+  }
+}
